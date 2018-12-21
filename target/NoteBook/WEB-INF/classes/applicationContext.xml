@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 注解 -->
+    <context:annotation-config />
+    <!--扫描-->
+    <context:component-scan base-package="com.zust">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 导入多个Properties配置文件 -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <!--要是有多个配置文件，只需在这里继续添加即可 -->
+                <value>classpath:config.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 加载数据源组件 -->
+    <!--配置数据源 这里是使用的是c3p0连接池-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}" />  <!--数据库连接驱动-->
+        <property name="jdbcUrl" value="${jdbc.url}" />     <!--数据库地址-->
+        <property name="user" value="${jdbc.username}" />   <!--用户名-->
+        <property name="password" value="${jdbc.password}" />   <!--密码-->
+        <!--        <property name="maxPoolSize" value="40" />      &lt;!&ndash;最大连接数&ndash;&gt;
+                <property name="minPoolSize" value="1" />       &lt;!&ndash;最小连接数&ndash;&gt;
+                <property name="initialPoolSize" value="10" />      &lt;!&ndash;初始化连接池内的数据库连接&ndash;&gt;
+                <property name="maxIdleTime" value="20" />  &lt;!&ndash;最大空闲时间&ndash;&gt;-->
+    </bean>
+
+    <!--配置session工厂-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.zust" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!--hibernate根据实体自动生成数据库表-->
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>   <!--指定数据库方言-->
+                <!--<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>     &lt;!&ndash;在控制台显示执行的数据库操作语句&ndash;&gt;-->
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>     <!--在控制台显示执行的数据哭操作语句（格式）-->
+            </props>
+        </property>
+    </bean>
+
+    <!-- 事务配置 声明式事务-->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <mvc:resources mapping="/css/**" location="/css/" />
+    <mvc:resources mapping="/js/**" location="/js/" />
+    <mvc:resources mapping="/images/**" location="/images/" />
+</beans>

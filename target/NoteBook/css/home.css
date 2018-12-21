@@ -1,0 +1,373 @@
+/*清零样式*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font: 12px Helvetica, Arial, sans-serif;
+  /*全文默认字体*/
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+img:hover{
+  color: #d5d5d5;
+}
+img,
+input {
+  border: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+/*头部*/
+.nav {
+  border-bottom: 1px solid #e5ebe4;
+  /* font: 12px Helvetica, Arial, sans-serif;
+  line-height: 1.62;
+  font-size:12px; */
+  color: #e4e4e4;
+}
+
+#hd-header {
+  width: 950px;
+  height: 90px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 20px;
+}
+
+
+.top-nav-info {
+  padding: 10px 10px 0 0;
+  font-size: 15px;
+  float: right;
+  line-height: 28px;
+
+}
+.top-nav-info a:link {
+  color: #d5d5d5;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#hd-header .header-search {
+  width: 270px;
+  /*设置长和高*/
+  height: 30px;
+  position: absolute;
+  left: 183px;
+  /*设置距离基准线的位置*/
+  top: 31px;
+  color: #e4e4e4;
+  border: 1px solid #999;
+  padding-left: 7px;
+  /*该属性设置元素左内边距的宽度*/
+}
+
+form img {
+  /*搜索小图标的样式*/
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 441px;
+  top: 41px;
+}
+
+
+#hd-header ul {
+  /*定义目录这个盒子的大小*/
+  width: 468px;
+  height: 22px;
+  position: absolute;
+  right: 0px;
+  top: 36px;
+
+}
+
+#hd-header ul li {
+  float: left;
+  /*左浮动*/
+  margin-right: 19px;
+  /*下一个单元距离上一个单元右侧距离*/
+}
+
+#hd-header ul li a {
+  display: block;
+  /*a标签，此元素将显示为块级元素,此元素前后会带有换行符 */
+  width: 39px;
+  height: 22px;
+
+}
+
+/*头部结束*/
+
+
+/*内容区域*/
+#hd-con {
+  width: 950px;
+  height: 524px;
+  margin: 42px auto 0;
+  position: relative;
+}
+
+#hd-con .more {
+  color: #796699;
+}
+
+#hd-con .con-left {
+  width: 382px;
+  height: 524px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#hd-con .con-left ul {
+  margin-top: 14px;
+}
+
+#hd-con .con-left ul li {
+  width: 172px;
+  height: 198px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+#hd-con .con-left ul li span {
+  color: #999999;
+}
+
+#hd-con .con-mid {
+  width: 301px;
+  height: 524px;
+  position: absolute;
+  left: 382px;
+  top: 0;
+}
+
+#hd-con .con-mid ul {
+  margin-top: 36px;
+}
+
+#hd-con .con-mid ul li {
+  line-height: 30px;
+  padding-right: 30px;
+}
+
+#hd-con .con-mid ul h2 {
+  color: #999;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#hd-con .con-mid ul p {
+  color: #666666;
+}
+
+#hd-con img{
+width: 117px;
+height: 150px;;
+}
+
+/*内容区域结束*/
+
+/*读书区域*/
+#hd-book {
+  width: 950px;
+  height: 623px;
+  margin: 38px auto 0px;
+  position: relative;
+}
+
+#hd-book a {
+  color: #563f2b;
+  
+}
+
+#hd-book a:hover {
+  color: #000;
+}
+
+#hd-book ul {
+  margin-top: 10px;
+}
+
+#hd-book ul .book-free-read {
+  display: block;
+  width: 68px;
+  height: 23px;
+  background: #aaaba8;
+  text-align: center;
+  line-height: 23px;
+  margin: 0 auto;
+  color: #fff;
+  border-radius: 2px;
+}
+
+#hd-book ul .book-free-read:hover {
+  background: #999A95;
+}
+
+#hd-book .mid p {
+  margin-top: 5px;
+}
+
+#hd-book .mid img {
+  width: 102px;
+  height: 142px;
+}
+
+#hd-book .book-title {
+  float: left;
+  margin-top: 30px;
+  margin-bottom: 18px;
+  width: 530px;
+}
+
+#hd-book ul .hd-book-cread {
+  float: left;
+  top: 0;
+}
+
+#hd-book .hd-book-right {
+  float: left;
+  margin-top: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+#hd-book .hd-book-right li {
+  float: left;
+  width: 37px;
+  line-height: 35px;
+}
+
+#hd-book .hd-book-right li.right-wen {
+  width: 60px;
+}
+
+#hd-book .hd-book-right li.right-top {
+  width: 43px;
+}
+
+
+
+/*读书区域结束*/
+
+/*公共样式*/
+a {
+  color: #3377aa;
+}
+
+a:hover {
+  /*a标签触发事件的背景和字体颜色*/
+  background: #E6E6FA;
+  color: #494949;
+}
+
+h2.title {
+  font: 15px Arial, Helvetica, sans-serif;
+  color: #007722;
+}
+
+h2.title span {
+  font-size: 14px;
+}
+
+.right {
+  width: 266px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.right ul {
+  width: 266px;
+}
+
+.right ul li {
+  line-height: 30px;
+  width: 267px;
+}
+
+.right ul h2 {
+  color: #999;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.left {
+  width: 121px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.left .left-title {
+  font-size: 24px;
+  color: #175273;
+}
+
+.left a:hover {
+  color: #fff;
+}
+
+.left .left-up {
+  margin-top: 5px;
+  line-height: 24px;
+}
+
+.left ul li {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.left ul li .new {
+  top: -5px;
+  position: relative;
+}
+
+.left .left-down {
+  margin-top: 28px;
+}
+
+.left .left-down li {
+  width: 60px;
+  height: 86px;
+}
+
+.left .left-down li a.left-down-pic {
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px #999;
+  display: block;
+  width: 51px;
+  height: 51px;
+}
+
+.left .left-down li a.left-down-des {
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.mid {
+  width: 530px;
+  position: absolute;
+  left: 121px;
+  top: 0;
+}
+
+.mid ul li {
+  width: 130px;
+  text-align: center;
+  float: left;
+}
+
+a {
+  font-size: 14px;
+  width: 140px;
+}
