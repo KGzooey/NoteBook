@@ -45,15 +45,15 @@
       <h3 id="title">${sessionScope.article.title}</h3>
       <div class="indent ">
         <div id="mainpic" class="">
-          <a class="nbg" id="coverUrl" href="../../images/cover/"+${sessionScope.article.coverUrl} title="盛夏方程式">
-            <img src="https://img3.doubanio.com/view/subject/l/public/s29917283.jpg" title="点击看大图" alt="盛夏方程式" rel="v:photo" />
+          <a class="nbg" id="coverUrl" href="../../images/cover/${sessionScope.article.coverUrl}" title=${sessionScope.article.title}>
+            <img src="../../images/cover/${sessionScope.article.coverUrl}" title="点击看大图" alt="${sessionScope.article.title} rel="v:photo" />
           </a>
         </div>
         <div id="info">
           <span>
             <span class="pl" > 作者</span>:
-            <a class="" href="javascript:void(0);" id="author"> ${sessionScope.article.author}</a> </span><br />
-          <span class="pl">出版社:</span> ${sessionScope.article.publishOrg}<br />
+            <a class="" href="javascript:void(0);" id="author"> ${sessionScope.article.author}</a> </span><br /><br />
+          <span class="pl">出版社:</span> ${sessionScope.article.publishOrg}<br /><br />
           <%--<span class="pl">出版年:</span> 2018-11<br />--%>
           <%--<span class="pl">页数:</span> 400<br />--%>
           <%--<span class="pl">定价:</span> 59.00<br />--%>
@@ -126,7 +126,7 @@
     </div>
     <p>
       &gt;
-      <a href="javascript:void(0);">更多短评 ${comment.commentCount} 条</a>
+      <a href="javascript:void(0);">更多短评 ${sessionScope.comment.commentCount} 条</a>
     </p>
     <!-- 短评结束 -->
   </div>

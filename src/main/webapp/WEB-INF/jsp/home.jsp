@@ -8,6 +8,25 @@
   <link href="../../css/bootstrap.css" rel="stylesheet">
   <script src="../../js/jquery.min.js"></script>
   <!--“./表示指向css文件”-->
+
+  <script>
+      function getTitile(title){
+          alert("e.title: "+title);
+          $.ajax({
+              url:"/information",
+              type:"post",
+              data:{
+                  title:title
+              },
+              success:function(data){
+                  if(data){
+                      alert(data);
+                      window.location.href = "/showArticle";
+                  }
+              }
+          });
+      }
+  </script>
 </head>
 
 <body>
@@ -35,23 +54,29 @@
     <h2 class="title">热点内容 (<span><a href="#">更多</a></span>)</h2>
     <ul>
       <li>
-        <a href=""class="thumbnail"><img name="hotBook" src="../../images/cover/1545231678.jpg" alt="" /></a>
-        <a href="" name="title">无羁</a>
+        <a href="/information?title=无羁" class="thumbnail">
+          <img name="hotBook" src="../../images/cover/1545231678.jpg" alt="" />
+        </a>
+        <a href="/information?title=无羁" name="title">无羁</a>
         <span>129条评论</span>
       </li>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="hotBook" src="../../images/cover/1545231693.jpg" alt="" /></a>
-        <a href="javascript:void(0);" name="title">世界观</a>
+        <a href="/information?title=世界观" class="thumbnail">
+          <img name="hotBook" src="../../images/cover/1545231693.jpg" alt="" />
+        </a>
+        <a  href="/information?title=世界观" name="title" >世界观</a>
         <span>129条评论</span>
       </li>
       <li>
-        <a href="javascript:void(0);"class="thumbnail"><img name="hotBook" src="../../images/cover/1545231700.jpg" alt="" /></a>
-        <a href="javascript:void(0);" name="title">爱你，西蒙</a>
+        <a  href="/information?title=爱你，西蒙" class="thumbnail">
+          <img name="hotBook" src="../../images/cover/1545231700.jpg" alt="" />
+        </a>
+        <a href="/information?title=爱你，西蒙"  name="title">爱你，西蒙</a>
         <span>129条评论</span>
       </li>
       <li>
-        <a href="javascript:void(0);"class="thumbnail"><img name="hotBook" src="../../images/cover/1545232177.jpg" alt="" /></a>
-        <a href="javascript:void(0);" name="title">尔雅诂林</a>
+        <a href="/information?title=尔雅诂林"  class="thumbnail"><img name="hotBook" src="../../images/cover/1545232177.jpg" alt="" /></a>
+        <a href="/information?title=尔雅诂林" name="title" >尔雅诂林</a>
         <span>129条评论</span>
       </li>
     </ul>
@@ -141,55 +166,55 @@
     <h2 class="title">新书速递 · · · · · · (<span><a href="#">更多</a></span>)</h2>
     <ul>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="newBook" src="../../images/cover/1545236380.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">生命中不能承受之輕</a></p>
+        <a href="/information?title=生命中不能承受之輕" class="thumbnail"><img name="newBook" src="../../images/cover/1545236380.jpg" alt="" /></a>
+        <p><a href="/information?title=生命中不能承受之輕" name="title">生命中不能承受之輕</a></p>
         <span>米蘭‧昆德拉</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
       </li>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="newBook" src="../../images/cover/1545236935.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">瓦尔登湖</a></p>
+        <a href="/information?title=瓦尔登湖" class="thumbnail"><img name="newBook" src="../../images/cover/1545236935.jpg" alt="" /></a>
+        <p><a href="/information?title=瓦尔登湖" name="title" >瓦尔登湖</a></p>
         <span>[[美]亨利·戴维</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
       </li>
       <li>
-        <a href="javascript:void(0);"class="thumbnail"><img name="newBook" src="../../images/cover/1545237919.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">《圣经》的文学性..</a></p>
+        <a href="/information?title=《圣经》的文学性" class="thumbnail"><img name="newBook" src="../../images/cover/1545237919.jpg" alt="" /></a>
+        <p><a href="/information?title=《圣经》的文学性" name="title" >《圣经》的文学性..</a></p>
         <span>刘锋</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
       </li>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="newBook" src="../../images/cover/1545238141.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">哲学之诗</a></p>
+        <a href="/information?title=哲学之诗" class="thumbnail"><img name="newBook" src="../../images/cover/1545238141.jpg" alt="" /></a>
+        <p><a href="/information?title=哲学之诗" name="title">哲学之诗</a></p>
         <span>张文涛</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
       </li>
     </ul>
     <h2 class="title book-title">历史文学 · · · · · · (<span><a href="#">更多</a></span>)</h2>
     <ul class="hd-book-cread">
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="histBook" src="../../images/cover/1545242481.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">留真谱</a></p>
+        <a href="/information?title=留真谱" class="thumbnail"><img name="histBook" src="../../images/cover/1545242481.jpg" alt="" /></a>
+        <p><a href="/information?title=留真谱" name="title" >留真谱</a></p>
         <span>(清)杨守敬</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
       </li>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="histBook" src="../../images/cover/1545243698.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">校勘杂志</a></p>
+        <a href="/information?title=校勘杂志" class="thumbnail"><img name="histBook" src="../../images/cover/1545243698.jpg" alt="" /></a>
+        <p><a href="/information?title=校勘杂志" name="title" >校勘杂志</a></p>
         <span>郑慧生</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
       </li>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="histBook" src="../../images/cover/1545244839.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">万廷言集</a></p>
+        <a href="/information?title=万廷言集"class="thumbnail"><img name="histBook"  src="../../images/cover/1545244839.jpg" alt="" /></a>
+        <p><a href="/information?title=万廷言集" name="title">万廷言集</a></p>
         <span>[明]万廷言 著</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=万廷言集" class="book-free-read">免费试读</a>
       </li>
       <li>
-        <a href="javascript:void(0);" class="thumbnail"><img name="histBook" src="../../images/cover/1545246712.jpg" alt="" /></a>
-        <p><a href="javascript:void(0);" name="title">晃岩集</a></p>
+        <a href="/information?title=晃岩集" class="thumbnail"><img name="histBook" src="../../images/cover/1545246712.jpg" alt="" /></a>
+        <p><a href="/information?title=晃岩集" name="title">晃岩集</a></p>
         <span>池显方</span>
-        <a href="javascript:void(0);" class="book-free-read">免费试读</a>
+        <a href="/information?title=晃岩集" class="book-free-read">免费试读</a>
       </li>
     </ul>
   </div>
@@ -273,81 +298,4 @@
 
 <!-- 结尾区域结束 -->
 </body>
-<script>
-
-  /*这里写这么多是因为。。。html页面没写好。
-  * w其实都是做一件事情，获取点击的title 上传*/
-  var timeOutFlag = null;
-  $("a[name='title']").click(function(e){
-
-      var title = $(this).text();
-      // alert(title)
-      $.ajax({
-          url:"/information",
-          type:"post",
-          data:{
-              title:title
-          },
-          success:function(data){
-              if(data){
-                  alert(data);
-                  window.location.href = "/showArticle";
-              }
-          }
-      });
-  });
-  $('img[name="hotBook"]').click(function(e){
-          // alert($(this).parents('li').children("a[name='title']").text());
-          var title = $(this).parents('li').children("a[name='title']").text();
-          $.ajax({
-              url:"/information",
-              type:"post",
-              data:{
-                  title:title
-              },
-              success:function(data){
-                  if(data){
-                      alert(data);
-                      window.location.href = "/showArticle";
-                  }
-              }
-          });
-      });
-  $('img[name="newBook"]').click(function(e){
-          // alert($(this).parent().next().children("a[name='title']").text());
-          var title = $(this).parent().next().children("a[name='title']").text();
-          $.ajax({
-              url:"/information",
-              type:"post",
-              data:{
-                  title:title
-              },
-              success:function(data){
-                  if(data){
-                      alert(data);
-                      window.location.href = "/showArticle";
-                  }
-              }
-          });
-      });
-  $('img[name="histBook"]').click(function(e){
-          // alert($(this).parent().next().children("a[name='title']").text());
-          $.ajax({
-              url:"/information",
-              type:"post",
-              data:{
-                  title:title
-              },
-              success:function(data){
-                  if(data){
-                      alert(data);
-                      window.location.href = "/showArticle";
-                  }
-              }
-          });
-      });
-
-
-
-</script>
 </html>
