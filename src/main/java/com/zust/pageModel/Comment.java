@@ -1,7 +1,7 @@
 package com.zust.pageModel;
 
 /**
- * @description: article页面的评论数据
+ * @description:
  * @create: 2018-12-20 14:37
  **/
 public class Comment {
@@ -10,6 +10,7 @@ public class Comment {
     private String content;
     private String likeCount;
     private String replyCount;
+    private String avatarUrl;
 
     public String getUserName() {
         return userName;
@@ -50,4 +51,11 @@ public class Comment {
         this.replyCount = replyCount;
     }
 
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
 }

@@ -1,0 +1,343 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+div{display: block;}
+
+a{cursor: pointer;}
+a:hover{
+    text-decoration: none;
+}
+a:visited{
+    color: #666699;
+    text-decoration: none;
+}
+a:link{text-decoration: none;}
+
+ul{
+    list-style: none;
+    display: block;
+    /*list-style-type: disc;*/
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+li{
+    text-align: -webkit-match-parent;
+    border-bottom: solid #f0f0f0 1px;
+}
+
+#note-top-nav{
+    height: 28px;
+    color: #d5d5d5;
+    background-color: #545652;
+    min-width: 950px;
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;
+    font-size: 12px;
+}
+
+#note-nav-search{
+    background: #f6f6f1;
+    position: relative;
+}
+
+.nav{
+    width: 100%;
+    min-width: 1040px;
+    overflow: hidden;
+    zoom: 1;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e5ebe4;
+}
+
+.note-nav-wrap{
+    border-color: #e9e9e2;
+    /*border-bottom: 1px solid #e5ebe4;*/
+}
+
+.note-nav-primary{
+    width: 1000px;
+    margin: 0 auto;
+    overflow: visible !important;
+    position: relative;
+    padding: 10px 0 5px;
+    zoom: 1;
+}
+
+.note-nav-logo{
+    float: left;
+    height: 56px;
+    width: 145px;
+    margin: 10px 13px 0 0;
+    font-size: 25px;
+}
+
+.nav-search{
+    float: left;
+    width: 470px;
+    height: 34px;
+    text-align: center;
+    margin-right: -13px;
+    cursor: text;
+}
+
+#search{
+    background: #fff;
+    width: 96%;
+    margin-top:13px;
+    text-align: left;
+    height: 30px;
+    padding-left: 10px;
+    outline: none;
+    -webkit-appearance: none;
+    border: none;
+    vertical-align: middle;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+.search-btn{
+    margin-top: 13px;
+    float: left;
+    position: relative;
+    margin-right: 10px;
+    font-size: 0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    background-color: white;
+}
+
+#search_logo{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /*background-color: white;*/
+    /*background: url(../image/sousuo.png) no-repeat;*/
+}
+
+#wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#content{
+    min-height: 420px;
+}
+
+.note-body{
+    display: block;
+    zoom: 1;
+}
+.note-body-article{
+    padding-right: 25px;
+    width: 675px;
+    float: left;
+}
+
+.article-comment-total{
+    padding-bottom: 15px;
+    position: relative;
+    border: 0;
+    margin-top: 12px;
+    /*padding: 15px 0 14px;*/
+    display: block;
+    zoom:1;
+    border-bottom: solid #f0f0f0 1px;
+}
+
+.comment-classify{float: right;}
+
+#article-comments{
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+    padding: 20px 0 0;
+}
+
+.article-comments-list{padding-top: 0;}
+
+.comments-item{
+    padding: 20px 0 25px;
+    margin: 0;
+    position: relative;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.avatar{
+    width: 48px;
+    float: left;
+    margin-right: 12px
+}
+
+img{
+    border-width: 0;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+.comment{
+    margin: 0;
+    overflow: hidden;
+}
+.comment h3{
+    font-size: 13px;
+    line-height: 1.7em;
+}
+
+.comment-likes{
+    float: right;
+}
+
+p{
+    margin: 0px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.comment-content{
+    width: 100%;
+    overflow: hidden;
+    margin-top: -7px;
+}
+
+.comment-report{
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.report{
+    animation-name: bounceIn;
+}
+#report-dialog{
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    display: none;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /*margin: -120px 0 0 -150px;*/
+    z-index: 10000;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 3px 2px 4px rgba(0,0,0,.2);
+    -webkit-box-shadow: 3px 2px 4px rgba(0,0,0,.2);
+}
+.animated{
+    /*-webkit-animation-duration: 1.4s;*/
+    animation-duration: 1.4s;
+    /*-webkit-animation-fill-mode: both;*/
+    animation-fill-mode: both
+}
+
+.dialog-top{
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px dotted #ccc;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    text-align: right;
+}
+
+form{
+    display: block;
+    margin-top: 0em;
+}
+#editform{
+    padding: 15px 0;
+}
+.report-submit{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    font-family: 微软雅黑,microsoft yahei;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-align: center;
+    background-color: #f0f0f0;
+    color: #fff;
+    /*box-shadow: 0 -3px 0 #2a6496 inset;*/
+    /*-webkit-box-shadow: 0 -3px 0 #2a6496 inset;*/
+}
+.ipt{
+    border: 1px solid #ccc;
+    padding: 5px;
+    /*border-radius: 3px;*/
+    -webkit-border-radius: 3px;
+    /*box-shadow: 0 0 3px #ccc inset;*/
+    -webkit-box-shadow: 0 0 3px #ccc inset;
+    margin-left: 5px;
+}
+
+.note-page{
+    margin-top: -13px;
+    margin-bottom: 20px;
+    /*position: relative;*/
+}
+
+.comment-page li{
+    font-size: 14px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 50px;
+    border-bottom: none;
+}
+
+.pagee{color: #aaa;}
+
+.note-body-intro{
+    width: 300px;
+    float: right;
+}
+
+.comment-w{
+    font-size: 14px;
+    font: 14px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+    margin-bottom: 15px;
+    margin-top: 12px;
+}
+
+.book-intro{
+    margin-bottom: 40px;
+    word-break: break-all;
+    width: 150px;
+}
+
+.boook{
+    float: left;
+    display: inline;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+a img{
+    border-width: 0;
+    vertical-align: middle;
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+.p1{
+    font: 12px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+    font-size: 13px;
+}
+

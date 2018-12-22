@@ -16,8 +16,9 @@
   <link rel="icon" href="../../images/headshot.jpg" />
 
   <title>article_NotationSystem</title>
+  <link href="../../css/article.css" rel="stylesheet" >
   <link href="../../css/bootstrap.css" rel="stylesheet" />
-  <link href="../../css/article.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -46,12 +47,12 @@
       <div class="indent ">
         <div id="mainpic" class="">
           <a class="nbg" id="coverUrl" href="../../images/cover/${sessionScope.article.coverUrl}" title=${sessionScope.article.title}>
-            <img src="../../images/cover/${sessionScope.article.coverUrl}" title="点击看大图" alt="${sessionScope.article.title} rel="v:photo" />
+            <img src="../../images/cover/${sessionScope.article.coverUrl}" title="点击看大图" alt="${sessionScope.article.title}/>
           </a>
         </div>
-        <div id="info">
+        <div id=info>
           <span>
-            <span class="pl" > 作者</span>:
+            <span class="p1"> 作者</span>:
             <a class="" href="javascript:void(0);" id="author"> ${sessionScope.article.author}</a> </span><br /><br />
           <span class="pl">出版社:</span> ${sessionScope.article.publishOrg}<br /><br />
           <%--<span class="pl">出版年:</span> 2018-11<br />--%>
@@ -93,15 +94,16 @@
     </div>
     <div class="nav-tab">
       <div>
-        <a href="hot" data-tab="hot">热门</a> <span>/</span>
-        <a href="new" data-tab="new">最新</a> <span>/</span>
-        <a href="follows" data-tab="follows">关注</a>
+          <%--tag（1热门 2最新 3关注）--%>
+        <a href="/comment/article/hot?title=${sessionScope.article.title}&page=1" data-tab="hot">热门</a> <span>/</span>
+        <a href="/comment/article/new?title=${sessionScope.article.title}&page=1" data-tab="new">最新</a> <span>/</span>
+        <a href="/comment/article/concern?title=${sessionScope.article.title}&page=1" data-tab="follows">关注</a>
       </div>
     </div>
     <div id="comment_list" class="indent">
       <div id="comments">
         <ul>
-          <c:forEach var="comment" items="${sessionScope.article.commentList}">
+          <c:forEach var="comment" items="${sessionScope.articleComment.comments}">
             <%--还有个replyCount没有加--%>
             <li class="comment-item">
               <div class="comment">
@@ -126,7 +128,7 @@
     </div>
     <p>
       &gt;
-      <a href="javascript:void(0);">更多短评 ${sessionScope.comment.commentCount} 条</a>
+      <a href="javascript:void(0);">更多短评 ${sessionScope.articleComment.commentCount} </a>
     </p>
     <!-- 短评结束 -->
   </div>

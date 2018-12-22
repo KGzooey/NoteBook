@@ -10,18 +10,20 @@
   <!--“./表示指向css文件”-->
 
   <script>
-      function getTitile(title){
-          alert("e.title: "+title);
+      function search(title){
+          // alert("e.title: "+title);
           $.ajax({
-              url:"/information",
+              url:"/search",
               type:"post",
               data:{
                   title:title
               },
               success:function(data){
                   if(data){
-                      alert(data);
+                      // alert(data);
                       window.location.href = "/showArticle";
+                  }else {
+                      alert("查询无结果");
                   }
               }
           });
@@ -39,9 +41,9 @@
     </div>
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" id="search_title" class="form-control" placeholder="Search">
       </div>
-      <button type="submit" class="btn btn-default">搜索</button>
+      <button type="button" class="btn btn-default" onclick="search($('#search_title').val())">搜索</button>
     </form>
   </div>
 </div>
@@ -51,7 +53,7 @@
 <!-- 内容区域 -->
 <div id="hd-con">
   <div class="con-left">
-    <h2 class="title">热点内容 (<span><a href="#">更多</a></span>)</h2>
+    <h2 class="title">热点内容 (<span><a href="/more?listId=1&type=0&page=1">更多</a></span>)</h2>
     <ul>
       <li>
         <a href="/information?title=无羁" class="thumbnail">
@@ -149,7 +151,7 @@
         <a href="">分类浏览</a>
       </li>
       <li>
-        <a href="">阅读</a>
+        <a href="">书单推荐</a>
       </li>
       <li>
         <a href="">作者</a>
@@ -162,62 +164,80 @@
       </li>
     </ul>
   </div>
-  <div class="mid">
-    <h2 class="title">新书速递 · · · · · · (<span><a href="#">更多</a></span>)</h2>
-    <ul>
-      <li>
-        <a href="/information?title=生命中不能承受之輕" class="thumbnail"><img name="newBook" src="../../images/cover/1545236380.jpg" alt="" /></a>
-        <p><a href="/information?title=生命中不能承受之輕" name="title">生命中不能承受之輕</a></p>
-        <span>米蘭‧昆德拉</span>
-        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
-      </li>
-      <li>
-        <a href="/information?title=瓦尔登湖" class="thumbnail"><img name="newBook" src="../../images/cover/1545236935.jpg" alt="" /></a>
-        <p><a href="/information?title=瓦尔登湖" name="title" >瓦尔登湖</a></p>
-        <span>[[美]亨利·戴维</span>
-        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
-      </li>
-      <li>
-        <a href="/information?title=《圣经》的文学性" class="thumbnail"><img name="newBook" src="../../images/cover/1545237919.jpg" alt="" /></a>
-        <p><a href="/information?title=《圣经》的文学性" name="title" >《圣经》的文学性..</a></p>
-        <span>刘锋</span>
-        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
-      </li>
-      <li>
-        <a href="/information?title=哲学之诗" class="thumbnail"><img name="newBook" src="../../images/cover/1545238141.jpg" alt="" /></a>
-        <p><a href="/information?title=哲学之诗" name="title">哲学之诗</a></p>
-        <span>张文涛</span>
-        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
-      </li>
-    </ul>
-    <h2 class="title book-title">历史文学 · · · · · · (<span><a href="#">更多</a></span>)</h2>
-    <ul class="hd-book-cread">
-      <li>
-        <a href="/information?title=留真谱" class="thumbnail"><img name="histBook" src="../../images/cover/1545242481.jpg" alt="" /></a>
-        <p><a href="/information?title=留真谱" name="title" >留真谱</a></p>
-        <span>(清)杨守敬</span>
-        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
-      </li>
-      <li>
-        <a href="/information?title=校勘杂志" class="thumbnail"><img name="histBook" src="../../images/cover/1545243698.jpg" alt="" /></a>
-        <p><a href="/information?title=校勘杂志" name="title" >校勘杂志</a></p>
-        <span>郑慧生</span>
-        <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
-      </li>
-      <li>
-        <a href="/information?title=万廷言集"class="thumbnail"><img name="histBook"  src="../../images/cover/1545244839.jpg" alt="" /></a>
-        <p><a href="/information?title=万廷言集" name="title">万廷言集</a></p>
-        <span>[明]万廷言 著</span>
-        <a href="/information?title=万廷言集" class="book-free-read">免费试读</a>
-      </li>
-      <li>
-        <a href="/information?title=晃岩集" class="thumbnail"><img name="histBook" src="../../images/cover/1545246712.jpg" alt="" /></a>
-        <p><a href="/information?title=晃岩集" name="title">晃岩集</a></p>
-        <span>池显方</span>
-        <a href="/information?title=晃岩集" class="book-free-read">免费试读</a>
-      </li>
-    </ul>
-  </div>
+    <div class="mid">
+
+        <h2 class="title">新书速递 · · · · · · (<span><a href="/more?listId=2&type=0&page=1">更多</a></span>)</h2>
+        <ul>
+            <li>
+                <a href="/information?title=生命中不能承受之輕" class="thumbnail"><img name="newBook" src="../../images/cover/1545236380.jpg" alt="" /></a>
+
+                <p><a href="/information?title=生命中不能承受之輕" name="title">生命中不能承受之輕</a></p>
+
+                <span>米蘭‧昆德拉</span>
+
+                <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
+            </li>
+            <li>
+                <a href="/information?title=瓦尔登湖" class="thumbnail"><img name="newBook" src="../../images/cover/1545236935.jpg" alt="" /></a>
+
+                <p><a href="/information?title=瓦尔登湖" name="title" >瓦尔登湖</a></p>
+
+                <span>[[美]亨利·戴维</span>
+
+                <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
+            </li>
+            <li>
+                <a href="/information?title=圣经" class="thumbnail"><img name="newBook" src="../../images/cover/1545237919.jpg" alt="" /></a>
+                <p><a href="/information?title=圣经" name="title" >《圣经》的文学性..</a></p>
+                <span>刘锋</span>
+                <a href="/information?title=圣经" class="book-free-read">免费试读</a>
+
+            </li>
+
+            <li>
+
+                <a href="/information?title=哲学之诗" class="thumbnail"><img name="newBook" src="../../images/cover/1545238141.jpg" alt="" /></a>
+
+                <p><a href="/information?title=哲学之诗" name="title">哲学之诗</a></p>
+
+                <span>张文涛</span>
+
+                <a href="/information?title=哲学之诗" class="book-free-read">免费试读</a>
+
+            </li>
+
+        </ul>
+
+        <h2 class="title book-title">历史文学 · · · · · · (<span><a href="/more?listId=3&type=0&page=1">更多</a></span>)</h2>
+
+        <ul class="hd-book-cread">
+            <li>
+                <a href="/information?title=留真谱" class="thumbnail"><img name="histBook" src="../../images/cover/1545242481.jpg" alt="" /></a>
+                <p><a href="/information?title=留真谱" name="title" >留真谱</a></p>
+                <span>(清)杨守敬</span>
+                <a href="/information?title=留真谱" class="book-free-read">免费试读</a>
+            </li>
+            <li>
+                <a href="/information?title=校勘杂志" class="thumbnail"><img name="histBook" src="../../images/cover/1545243698.jpg" alt="" /></a>
+                <p><a href="/information?title=校勘杂志" name="title" >校勘杂志</a></p>
+                <span>郑慧生</span>
+                <a href="/information?title=校勘杂志" class="book-free-read">免费试读</a>
+            </li>
+
+            <li>
+                <a href="/information?title=万廷言集"class="thumbnail"><img name="histBook"  src="../../images/cover/1545244839.jpg" alt="" /></a>
+                <p><a href="/information?title=万廷言集" name="title">万廷言集</a></p>
+                <span>[明]万廷言 著</span>
+                <a href="/information?title=万廷言集" class="book-free-read">免费试读</a>
+            </li>
+            <li>
+                <a href="/information?title=晃岩集" class="thumbnail"><img name="histBook" src="../../images/cover/1545246712.jpg" alt="" /></a>
+                <p><a href="/information?title=晃岩集" name="title">晃岩集</a></p>
+                <span>池显方</span>
+                <a href="/information?title=晃岩集" class="book-free-read">免费试读</a>
+            </li>
+        </ul>
+    </div>
   <div class="right">
     <h2 class="title">热门标签 · · · · · · (<span><a href="#">更多</a></span>)</h2>
     <ul class="hd-book-right">
