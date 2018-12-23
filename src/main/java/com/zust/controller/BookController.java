@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes(value = {"article","bookItemList","articleComment"})
+@SessionAttributes(value = {"article","bookItemList"})
 public class BookController {
     @Autowired
     BookService bookService;
@@ -23,13 +25,13 @@ public class BookController {
 
     //根据title获取书籍页信息,书籍详情页面 √
     @RequestMapping("/information")
-    public String getInformation(String title, Model model){
+    public String getInformation(String title, Model model, HttpSession httpSession){
 //        Article article = bookService.findArticle(title);
         Book book = bookService.findBookInfo(title);
         CommentList commentList = bookService.findArticleComment(title);
         /*这里书籍信息和评论应该用两个pageModel/session存储，不然之后不好改*/
         model.addAttribute("article",book);
-        model.addAttribute("articleComment",commentList);
+        httpSession.setAttribute("articleComment",commentList);
         return "article";
     }
 

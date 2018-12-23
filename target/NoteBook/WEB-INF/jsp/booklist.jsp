@@ -44,12 +44,12 @@
             <div class="note-nav-logo">NoteBook</div>
             <form action="">
                 <div class="nav-search">
-                    <input id="search" name="search" placeholder="书名" onclick="search($('#search').val())">
+                    <input id="search" name="search" placeholder="书名" >
                 </div>
                 <div class="search-btn">
-                    <a id="search_logo" href="#">
+                    <div id="search_logo"  href="#" onclick="search($('#search').val())">
                         <img src="../../images/sousuo.png">
-                    </a>
+                    </div>
                 </div>
             </form>
         </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="book-page">
                         <ul class="book-page">
-                            <li><span class="pagee">第一页</span></li>
+                            <li><span class="pagee">第${sessionScope.bookItemList.pageInfo.currentPage}页</span></li>
                             <li><a href="/more?listId=${sessionScope.bookItemList.pageInfo.listId}
                             &type=${sessionScope.bookItemList.pageInfo.type}
                             &page=${sessionScope.bookItemList.pageInfo.lastPage}"

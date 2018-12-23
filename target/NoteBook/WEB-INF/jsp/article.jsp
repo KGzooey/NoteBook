@@ -20,7 +20,26 @@
   <link href="../../css/bootstrap.css" rel="stylesheet" />
 
 </head>
-
+<script>
+    function search(title){
+        // alert("e.title: "+title);
+        $.ajax({
+            url:"/search",
+            type:"post",
+            data:{
+                title:title
+            },
+            success:function(data){
+                if(data){
+                    // alert(data);
+                    window.location.href = "/showArticle";
+                }else {
+                    alert("查询无结果");
+                }
+            }
+        });
+    }
+</script>
 <body>
   <!-- 头部开始 -->
   <div id="hd-header">
@@ -32,9 +51,9 @@
     
     <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" id="search_title">
         </div>
-        <button type="submit" class="btn btn-default">搜索</button>
+        <button type="button" class="btn btn-default" onclick="search($('#search_title').val())">搜索</button>
       </form>
   </div>
   <!-- 头部结束 -->
@@ -128,7 +147,7 @@
     </div>
     <p>
       &gt;
-      <a href="javascript:void(0);">更多短评 ${sessionScope.articleComment.commentCount} </a>
+      <a href="/comment/page?tag=1&page=1&title=${sessionScope.article.title}">更多短评 ${sessionScope.articleComment.commentCount} </a>
     </p>
     <!-- 短评结束 -->
   </div>

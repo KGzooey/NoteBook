@@ -5,11 +5,16 @@ package com.zust.pageModel;
  * @create: 2018-12-22 11:13
  **/
 public class PageInfo {
-    private Integer listId;
-    private Integer type;
     private Integer lastPage;
     private Integer currentPage;
     private Integer nextPage;
+
+    //书单
+    private Integer listId;
+    private Integer type;
+
+    //评论
+    private Integer tag;
 
     public Integer getCurrentPage() {
         return currentPage;
@@ -49,5 +54,13 @@ public class PageInfo {
 
     public void setLastPage(Integer lastPage) {
         this.lastPage = lastPage;
+    }
+
+    public Integer getTag() {
+        return tag;
+    }
+
+    public void setTag(Integer tag) {
+        this.tag = tag;
     }
 }

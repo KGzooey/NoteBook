@@ -9,6 +9,7 @@ import java.util.List;
 public class CommentList {
     private List<Comment> comments;
     private String commentCount;
+    private PageInfo pageInfo;
 
     public List<Comment> getComments() {
         return comments;
@@ -24,5 +25,13 @@ public class CommentList {
 
     public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
+    }
+
+    public PageInfo getPageInfo() {
+        return pageInfo;
+    }
+
+    public void setPageInfo(PageInfo pageInfo) {
+        this.pageInfo = pageInfo;
     }
 }
