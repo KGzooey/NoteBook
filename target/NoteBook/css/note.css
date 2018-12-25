@@ -1,0 +1,180 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+div{display: block;}
+
+a:visited{
+    color: #669;
+    text-decoration: none;
+}
+a:link{
+    color: #37a;
+    text-decoration: none;
+}
+a{
+    cursor: pointer;
+}
+
+#wrapper{width: auto;}
+
+.article{
+    float: none;
+    width: 650px;
+    margin: auto;
+    padding: 0;
+}
+
+.article-editor{
+    width: 630px;
+    margin: auto;
+}
+
+.article-editor-title{
+    height: 60px;
+    margin: 70px 20px 30px;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+.article-editor-title a:link{
+    color: inherit;
+    background-color: transparent;
+}
+
+.title-img{
+    float: left;
+    position: relative;
+    margin-right: 10px;
+    font-size: 0;
+    width: 48px;
+    height: 62px;
+    overflow: hidden;
+}
+
+.title-title{
+    padding: 10px 40px 0 0;
+    margin-bottom: 5px;
+    color: #37a;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.title-author{
+    color: #999;
+    font-size: 12px;
+    padding-bottom: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.title-intro{
+    overflow: hidden;
+    padding-right: 20px
+}
+
+.article-editor-likes{
+    height: 20px;
+    margin: 0px 20px 30px;
+    /*background-color: #2aabd2;*/
+}
+.article-editor-likes-label{
+    splay: inline-block;
+    font-size: 15px;
+}
+.article-editor-likes-stars{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 12px
+}
+
+.star-rate{
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 1px;
+    cursor: pointer;
+}
+
+.article-editor-add{
+    margin: 0px 20px 30px;
+    font-size: 25px;
+    font-family: 微软雅黑;
+}
+.article-editor-add input{
+    border-style: none;
+    width: 100%;
+}
+
+.article-editor-body{
+    font-size: 0;
+    margin: 0px 20px 30px;
+}
+
+.body-toolbar{
+    font-size: 0;
+    padding: 8px 0px;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+.body-toolbar img{
+    cursor: pointer;
+}
+.body-toolbar button{
+    background: white;
+    border-style: none;
+}
+.body-toolbar-spiltline{
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    margin: 0 7px;
+    border-left: 1px solid #e5e5e5;
+}
+
+.body-editor{
+    position: relative;
+    font-size: 14px;
+}
+textarea{
+    border-style: none;
+    font-size: 17px;
+}
+
+#editor {
+    max-height: 250px;
+    height: 250px;
+    background-color: white;
+    border-collapse: separate;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 4px;
+    box-sizing: content-box;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    overflow: scroll;
+    outline: none;
+}
+#voiceBtn {
+    width: 20px;
+    color: transparent;
+    /*background-color: transparent;*/
+    transform: scale(2.0, 2.0);
+    -webkit-transform: scale(2.0, 2.0);
+    -moz-transform: scale(2.0, 2.0);
+    border: transparent;
+    cursor: pointer;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+/*.btn-toolbar div[data-role="editor-toolbar"] {*/
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*-ms-user-select: none;*/
+    /*user-select: none;*/
+/*}*/
+

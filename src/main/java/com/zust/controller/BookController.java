@@ -20,7 +20,7 @@ public class BookController {
     //进入初始页面√
     @RequestMapping("")
     public String enter(){
-        return "home";
+        return "login";
     }
 
     //根据title获取书籍页信息,书籍详情页面 √
