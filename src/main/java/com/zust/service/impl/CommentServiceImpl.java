@@ -127,16 +127,19 @@ public class CommentServiceImpl implements CommentService {
         List<TUserRelation> concerned = userRelationDao.find(userHql);
 
         //根据每个关注者的id，bookId,搜索TComment，获取list
-        Comment comment = new Comment();
         TComment concerComment;
         String id;
         String hql;
         Integer count = 0;
         for (TUserRelation user:concerned) {
+            Comment comment = new Comment();
             id = user.getRelatered()+"";
             //一个用户对一本书只有一条评论不用循环
             hql = "from TComment where commenterId = "+ id +" and bookId = "+bookId;
             concerComment = commentDao.get(hql);
+            if (concerComment == null){
+                continue;
+            }
             BeanUtils.copyProperties(concerComment, comment);
             //时间处理一下
             String publishDate = new SimpleDateFormat("yyyy-MM-dd ").format(concerComment.getPublishDate());
@@ -184,6 +187,9 @@ public class CommentServiceImpl implements CommentService {
                 //一个用户对一本书只有一条评论不用循环
                 hql = "from TComment where commenterId = " + id + " and bookId = " + bookId;
                 concerComment = commentDao.get(hql);
+                if(concerComment == null){
+                   continue;
+                }
                 BeanUtils.copyProperties(concerComment, comment);
                 //时间处理一下
                 String publishDate = new SimpleDateFormat("yyyy-MM-dd ").format(concerComment.getPublishDate());
@@ -214,7 +220,9 @@ public class CommentServiceImpl implements CommentService {
                 TUser tUser;
                 for (TComment t:list) {
                     Comment comment = new Comment();
-                    BeanUtils.copyProperties(t,comment);
+                    if (t != null){
+                        BeanUtils.copyProperties(t,comment);
+                    }
                     //根据commenterId查UserName
                     tUser = userDao.get("from TUser where id = "+t.getCommenterId());
                     comment.setUserName(tUser.getUserName());
