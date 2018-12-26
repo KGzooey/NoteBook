@@ -14,11 +14,7 @@
     <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-
             loginNameFlag = false;
-            password1Flag = false;
-            password2Flag = false;
-
             //用户名验证
             $("#login_name").blur(function () {
                 var name = $("#login_name").val();
@@ -30,40 +26,34 @@
                     loginNameFlag = true;
                 }
             });
-            //密码长度验证
-            $("#password1").blur(function () {
-                var password1 = $("#password1").val();
-                if (password1.length > 15) {
-                    $("#password1Error").show();
-                    password1Flag = false;
-                } else {
-                    $("#password1Error").hide();
-                    password1Flag = true;
-                }
-            });
-            //密码确认验证
-            $("#password2").blur(function () {
-                var password2 = $("#password2").val();
-                var password1 = $("#password1").val();
-                if (password2 != password1) {
-                    $("#password2Error").show();
-                    password2Flag = false;
-                } else {
-                    $("#password2Error").hide();
-                    password2Flag = true;
-                }
-            });
 
         });
-        function register() {
-            if (confirm("确认提交注册信息？")) {
-                if (loginNameFlag==false|| password1Flag==false|| password2Flag==false) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
+
+        $(function () {
+            $("#register").click(function () {
+                $.ajax({
+                    url : '/ks/register',
+                    type : 'post',
+                    data: $( '#registerForm').serialize() ,
+                    dataType : 'json',
+                    success: function (result) {
+                        var error_type = result.errorType;
+                        var msg = result.msg;
+                        if(error_type==1){
+                            alert(msg);
+                        }else if(error_type==2){
+                            alert(msg);
+                        }else{
+                            alert(msg);
+                            window.location.href="/ks/showLogin";
+                        }
+                    },
+                    error: function (error) {
+                        alert(error+"23234")
+                    }
+                })
+            })
+        })
         function cancelRegister() {
             if (confirm("确认取消？")) {
                 window.location.href = "/ks/showLogin";
@@ -79,7 +69,7 @@
         <h1>注册成为阅读者</h1>
     </div>
     <div>
-        <form name="registerForm" action="/ks/register" method="post">
+        <form id="registerForm" action="" method="post">
             <table>
                 <tr>
                     <td>用户名</td>
@@ -102,11 +92,10 @@
                         <input type="radio" name="gender" value="1">男
                     </td>
                 </tr>
-                <tr><td></td><td id="password2Error" style="display:none;color: red;font-size: x-small">两次密码不一致！</td></tr>
             </table>
             <p></p>
             <div class="anNiu">
-                <input id="register" name="register" type="submit" value="注册" onclick="register()"/>
+                <button id="register" name="register">注册</button>
                 <input id="cancel" name="cancel" type="button" value="取消" onclick="cancelRegister()" />
             </div>
         </form>

@@ -31,7 +31,7 @@
 	<div class="list ">
 		<div class="left">
 			<div class="top-line"></div>
-			<form id="basicXX" name="basicXX" method="post" action="/ks/changeIntro" enctype="multipart/form-data">
+			<form id="basicXX" name="basicXX" method="post" action="/ks/changeXX" enctype="multipart/form-data">
 				<table cellpadding="5" width="600px">
 					<tr>
 						<td align="right" width="100px">名 号：</td>
@@ -48,8 +48,8 @@
 					<tr>
 						<td align="right">头 像：</td>
 						<td>
-							<img src="${user.avatarUrl}" width="150px;">
-							<input type="file" name="upload">
+							<img src="<%=request.getContextPath()%>/images/avatar/${user.avatarUrl}" width="150px;">
+							<input type="file" name="filePic">
 						</td>
 					</tr>
 					<tr>

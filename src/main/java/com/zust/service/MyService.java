@@ -16,7 +16,8 @@ public interface MyService {
     RelationModel findUniqueRelation(int type, int userId, int otherId);//查找指定关系
     List<UserModel> relateUsers(int id);//查找所有关系对象
     void changeIntro(int id, String word);//修改自我介绍
-    int changePsw(int id, String oldPsw, String newPsw1, String newPsw2);//修改密码
+    void changePsw(int id, String oldPsw, String newPsw1, String newPsw2);//修改密码
+    void changePic(int id,String url);//修改头像
     Page findByCommenterIdAndPage(int id);//查找所有评论关系
     BookModel findBookById(int id);//通过书本id查找指定书本
     void relate(int userId, int otherId, int type);//做出操作

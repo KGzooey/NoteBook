@@ -149,17 +149,20 @@ public class MyServiceImpl implements MyService {
     }
 
     @Override
-    public int changePsw(int id, String oldPsw, String newPsw1, String newPsw2) {
-        int flag = 0;
+    public void changePsw(int id, String oldPsw, String newPsw1, String newPsw2) {
         UserEntity user = userDao.get("from UserEntity where id = '"+id+"'");
         String password = user.getPassword();
         if (password.equals(oldPsw)){
             if (newPsw1.equals(newPsw2)){
                 userDao.changePsw(id,newPsw1);
-                flag = 1;
             }
         }
-        return flag;
+    }
+
+    @Override
+    public void changePic(int id, String url) {
+        UserEntity user = userDao.get("from UserEntity where id = '"+id+"'");
+        userDao.changePic(id,url);
     }
 
     @Override
@@ -200,15 +203,11 @@ public class MyServiceImpl implements MyService {
 
     @Override
     public void relate(int userId, int otherId, int type) {
-        System.out.println("relate_userId:"+userId);
-        System.out.println("relate_otherId:"+otherId);
-        System.out.println("relate_type:"+type);
         RelationEntity relation = new RelationEntity();
         relation.setRelater(userId);
         relation.setRelatered(otherId);
         relation.setType(type);
-        Date date = new Date();
-        relation.setOperateTime(date);
+        relation.setOperateTime(new Date());
         relationDao.save(relation);
     }
 
@@ -224,6 +223,8 @@ public class MyServiceImpl implements MyService {
         user.setUsername(name);
         user.setPassword(password);
         user.setGender(gender);
+        user.setType(1);
+        user.setRegisterDate(new Date());
         userDao.save(user);
     }
 

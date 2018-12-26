@@ -5,4 +5,5 @@ import com.zust.bean.UserEntity;
 public interface MyUserDao extends BaseDao<UserEntity> {
     void changeIntro(int id, String word);//修改自我介绍
     void changePsw(int id, String password);//修改密码
+    void changePic(int id, String url);//修改头像
 }
